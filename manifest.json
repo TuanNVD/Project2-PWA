@@ -1,0 +1,28 @@
+{
+  "short_name": "PWA Weather",
+  "name": "PWA Weather",
+  "icons": [
+    {
+      "src": "icon/icon192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "icon/icon512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "icon/maskable_icon.png",
+      "type": "image/png",
+      "sizes": "1024x1024",
+      "purpose": "maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#cccccc",
+  "background_color": "#ffffff"
+}

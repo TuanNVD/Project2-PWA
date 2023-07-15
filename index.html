@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="icon/icon.png">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="manifest" href="./manifest.json">
+  <title>PWA Weather</title>
+</head>
+
+<body>
+  <div class="main">
+    <div class="header">
+      <header>
+        Weather App PWA
+        <button class="install-btn" hidden>Install App</button>
+      </header>
+      <div class="inputField">
+        <input type="text" placeholder="Search for lacation">
+        <button> <i class="fa-solid fa-magnifying-glass"></i> </button>
+      </div>
+      <div class="location">
+        <p class="city" onclick="currentWeather()"></p>
+        <ul class="location-list">
+        </ul>
+      </div>
+    </div>
+    <div class="content">
+      <h3 id="select-location" class="title">Ha Noi</h3>
+      <div class="section1">
+        <div class="current-weather">
+          <h4 style="margin-left:-8px ;">Thời tiết hiện tại</h4>
+          <div class="current-time"></div>
+          <div class="main-content">
+            <div class="icon-desc">
+            </div>
+            <div class="temperature"></div>
+            <sup class="sub-temp">&deg;C</sup>
+            <div class="description">
+              <h5 class="main-desc"></h5>
+              <p class="sub-desc"></p>
+            </div>
+          </div>
+          <div class="more-desc">
+            <div class="character">
+              <p style="font-size: 14px;">Gió</p>
+              <p class="wind"></p>
+            </div>
+            <div class="character">
+              <p style="font-size: 14px;">Độ ẩm</p>
+              <p class="humidity"></p>
+            </div>
+            <div class="character">
+              <p style="font-size: 14px;">Tầm nhìn</p>
+              <p class="visibility"></p>
+            </div>
+          </div>
+        </div>
+        <div class="forecast-24h">
+          <h4 style="margin-left:-8px ;"> Dự báo 24h tới</h4>
+          <div class="hourly-forecast"></div>
+        </div>
+      </div>
+      <h3 class="title">Dự báo 7 ngày tới</h3>
+      <div class="weather-forecast"></div>
+    </div>
+  </div>
+  <script src="./index.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then((reg) => { console.log('Success:', reg.scope) })
+          .catch((err) => { console.log('Failure, err') });
+      })
+    }
+  </script>
+</body>
+
+</html>
